@@ -75,10 +75,6 @@ export class ActivityService {
         // Converting Set back to array if necessary
         newActivity.categories = Array.from(categories1);
 
-
-
-
-
         // Save the updated activity
         const updatedActivity = await newActivity.save();
 
