@@ -1,5 +1,7 @@
 import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { ActivityService } from './activity.service';
+import { createactivitdto } from 'src/dto/activity/create-act.dto';
+import { updateActivitydto } from 'src/dto/activity/update-act.dto';
 
 @Controller('activity')
 export class ActivityController {
@@ -12,7 +14,7 @@ export class ActivityController {
     // }  
     
     @Post()
-    async createActivity(@Body() act:any)
+    async createActivity(@Body() act:createactivitdto)
     {
 
         return this.activityService.createAct(act);
@@ -20,7 +22,7 @@ export class ActivityController {
 
     @Get()
     async getAllActivity(){
-        return this.activityService.getAllAct
+        return this.activityService.getAllAct()
     }
 
     @Get('id')
@@ -28,9 +30,9 @@ export class ActivityController {
         return this.activityService.getAct(id)
     }
 
-    @Patch('id')
-    async updateActivity(@Body() act:any , @Param('id')id:string ){
-        return this.activityService.updateActivity(act,id);
+    @Patch()
+    async updateActivity(@Body () act:updateActivitydto ){
+        return this.activityService.updateAct(act);
 
     }
 }
