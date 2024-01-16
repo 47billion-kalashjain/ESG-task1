@@ -4,7 +4,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 export class emFactor {
     @Prop()
     catId:string
-    @Prop()
+    @Prop({default:["kg","hr","dollar","gm","min","mg","sec"]})
     unit:string[]
     @Prop()
     factor:number[]
