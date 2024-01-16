@@ -8,6 +8,8 @@ export class emFactor {
     unit:string[]
     @Prop()
     factor:number[]
+    @Prop()
+    scope:number
  
 }
 

@@ -5,7 +5,8 @@ import { Category } from 'src/schema/category.schema';
 
 @Injectable()
 export class CategoriesService {
-  constructor(@InjectModel(Category.name) private catModel: Model<Category>) { }
+  constructor(@InjectModel(Category.name) private catModel: Model<Category>
+  ) { }
 
   async getAllCat(): Promise<Category[]> {
     const catgs = await this.catModel.find().exec();

@@ -7,16 +7,16 @@ import { emFactor } from 'src/schema/emfactor.schema';
 
 @Injectable()
 export class EmFactorService {
-    constructor(
-        // @InjectModel(Test.name) private userModel: mongoose.Model<Test>,
-        // @InjectModel(Activity.name) private activityModel: mongoose.Model<Activity>
-        @InjectModel(emFactor.name) private emfModel: mongoose.Model<emFactor>
+    constructor(@InjectModel(emFactor.name) private emfModel: mongoose.Model<emFactor>
     ) { }
 
+        // updateRemain(obj:createEmfdto):{
+        //     return 
+        // }
 
     async createEmf(obj: createEmfdto): Promise<emFactor> {
         console.log(obj);
-        
+        // const updatedObj=updateRemain(obj);
         return this.emfModel.create(obj);
     }
 
